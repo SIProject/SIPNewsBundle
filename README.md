@@ -125,14 +125,16 @@ class MainController extends Controller
             ->getNewsRepository()
             ->findBy(array('onMain' => 1), array('date' => 'desc'), 8);
 
-        return $this->render('SIPResourceBundle:Main:index.html.twig',
+        return $this->render('MyBundle:Main:index.html.twig',
             array('recentNews'     => $recentNews));
     }
 }
 ```
 
-Template:
+Template(index.html.twig):
 
+``` twig
+...
 <div class="fluid-row" style="overflow: hidden;">
     {% for news in recentNews %}
 
@@ -159,3 +161,5 @@ Template:
 
     {% endfor %}
 </div>
+...
+```
