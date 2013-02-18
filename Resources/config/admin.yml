@@ -1,0 +1,6 @@
+services:
+    sip_news.news.admin:
+        class: %sip_news.admin.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Content, label: News }
+        arguments: [null, %sip.news.model.class%, SonataAdminBundle:CRUD]

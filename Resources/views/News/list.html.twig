@@ -1,0 +1,10 @@
+{% extends 'SIPResourceBundle::layout.html.twig' %}
+
+{% block content %}
+    {% for new in news %}
+        <h1><a href="{{ path('sip_news_show', {'slug': new.slug}) }}">{{ new.title }}</a></h1>
+        <p>{{ new.brief|raw }}</p>
+        <p>{{ new.date|date("d.m.Y") }}</p>
+        <p><a href="{{ new.link }}">{% media new.image, 'normal' %}</a></p>
+    {% endfor %}
+{% endblock %}

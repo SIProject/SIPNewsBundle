@@ -1,0 +1,13 @@
+{
+    "name": "sip/news-bundle",
+    "type": "symfony-bundle",
+    "description": "Simple news bundle with sonata backend",
+    "require": {
+        "genemu/form-bundle": "2.1.*",
+        "sonata-project/admin-bundle": "master-dev"
+    },
+    "autoload": {
+        "psr-0": { "SIP\\NewsBundle": "" }
+    },
+    "target-dir": "SIP/NewsBundle"
+}

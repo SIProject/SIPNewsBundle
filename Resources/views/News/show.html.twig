@@ -1,0 +1,11 @@
+{% extends 'SIPResourceBundle::layout.html.twig' %}
+
+{% block content %}
+    <h1>{{ new.title }}</h1>
+    <p>{{ new.brief|raw }}</p>
+    <p>{{ new.date|date("d.m.Y") }}</p>
+    <p>{{ new.description|raw }}</p>
+    <p><a href="{{ new.link }}">{% media new.image, 'normal' %}</a></p>
+
+    <p><a href="{{ path('sip_news_list') }}">Go to list</a></p>
+{% endblock %}

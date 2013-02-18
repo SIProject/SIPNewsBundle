@@ -1,0 +1,20 @@
+sip_news_list:
+    pattern: /
+    defaults:
+        _controller: sip_news.controller.news:indexAction
+        _template: SIPNewsBundle:News:list.html.twig
+        _paginate: 9
+
+sip_news_show:
+    pattern: /{slug}
+    defaults:
+        _controller: sip_news.controller.news:showAction
+        _template: SIPNewsBundle:News:show.html.twig
+        _identifier: slug
+
+sip_news_list_by_category:
+    pattern: /category/{slug}
+    defaults:
+        _controller: sip_news.controller.news:listByCategoryAction
+        _template: SIPNewsBundle:News:list.html.twig
+        _paginate: 9
