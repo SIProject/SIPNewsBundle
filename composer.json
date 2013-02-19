@@ -4,7 +4,8 @@
     "description": "Simple news bundle with sonata backend",
     "require": {
         "genemu/form-bundle": "2.1.*",
-        "sonata-project/admin-bundle": "master-dev"
+        "sonata-project/admin-bundle": "master-dev",
+        "sylius/resource-bundle":   "0.1.*"
     },
     "autoload": {
         "psr-0": { "SIP\\NewsBundle": "" }
