@@ -92,7 +92,20 @@ SIPNewsBundle:
     prefix:   /news
 ```
 
-6. Templates
+6. Configuration:
+-----------------
+
+``` yml
+# app/config/config.yml
+sip_news:
+    model: MyBundle\Entity\News
+    # All Default configuration:
+    # controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+    # repository: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+    # admin: SIP\NewsBundle\Admin\NewsAdmin
+```
+
+7. Templates
 ------------
 
 The bundle requires show.html and list.html templates.
@@ -100,7 +113,7 @@ Easiest way to override the view is placing it here
 app/Resources/SIPNewsBundle/views/News/show.html.twig
 app/Resources/SIPNewsBundle/views/News/list.html.twig.
 
-7. Usage
+8. Usage
 --------
 
 Show news on main page:
