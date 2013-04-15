@@ -76,8 +76,6 @@ class NewsAdmin extends Admin
                 ->add('brief', 'genemu_tinymce')
                 ->add('description', 'genemu_tinymce')
                 ->add('link', 'url')
-                ->add('category', 'genemu_jqueryselect2_entity',
-                    array('class' => 'SIP\ResourceBundle\Entity\Category', 'property' => 'title', 'required' => false))
                 ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'news')))
             ->end();
     }
