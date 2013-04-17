@@ -20,8 +20,8 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('model')->cannotBeEmpty()->end()
-                ->scalarNode('controller')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController')->end()
-                ->scalarNode('repository')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Doctrine\\ORM\\EntityRepository')->end()
+                ->scalarNode('controller')->defaultValue('SIP\\NewsBundle\\Controller\\NewsController')->end()
+                ->scalarNode('repository')->defaultValue('SIP\\ResourceBundle\\Repository\\EntityRepository')->end()
                 ->scalarNode('admin')->defaultValue('SIP\\NewsBundle\\Admin\\NewsAdmin')->end()
             ->end();
 

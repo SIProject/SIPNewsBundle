@@ -1,7 +1,6 @@
 services:
     sip_news.controller.news:
         class: %sip.news.controller.class%
-        arguments: ["sip_news", "new", "SIPNewsBundle:News"]
         calls:
             - [ setContainer, [ @service_container ] ]
 
