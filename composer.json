@@ -5,7 +5,7 @@
     "require": {
         "genemu/form-bundle": "2.1.*",
         "sonata-project/admin-bundle": "master-dev",
-        "sylius/resource-bundle":   "dev-master"
+        "white-october/pagerfanta-bundle": "dev-master"
     },
     "autoload": {
         "psr-0": { "SIP\\NewsBundle": "" }
