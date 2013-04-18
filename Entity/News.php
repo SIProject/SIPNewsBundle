@@ -38,7 +38,7 @@ class News
     protected $slug;
 
     /**
-     * @ORM\ManyToOne(targetEntity="SIP\ResourceBundle\Entity\Media\Media")
+     * @ORM\ManyToOne(targetEntity="SIP\ResourceBundle\Entity\Media\Media", fetch="EAGER")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id", nullable=true)
      */
     protected $image;
