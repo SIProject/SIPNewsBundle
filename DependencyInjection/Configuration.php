@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('model')->cannotBeEmpty()->end()
                 ->scalarNode('manager_type')->defaultValue('orm')->end()
                 ->scalarNode('controller')->defaultValue('SIP\\NewsBundle\\Controller\\NewsController')->end()
-                ->scalarNode('repository')->defaultValue('SIP\\ResourceBundle\\Repository\\EntityRepository')->end()
+                ->scalarNode('repository')->defaultValue('SIP\\ResourceBundle\\Repository\\ORM\\EntityRepository')->end()
                 ->scalarNode('admin')->defaultValue('SIP\\NewsBundle\\Admin\\NewsAdmin')->end()
             ->end();
 

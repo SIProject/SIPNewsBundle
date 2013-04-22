@@ -1,9 +1,4 @@
 services:
-    sip_news.controller.news:
-        class: %sip.news.controller.class%
-        calls:
-            - [ setContainer, [ @service_container ] ]
-
     sip_news.default_entity_manager.news:
         factory_service: doctrine.orm.default_entity_manager
         factory_method: getClassMetadata

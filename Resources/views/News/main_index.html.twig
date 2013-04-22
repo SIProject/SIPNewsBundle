@@ -3,19 +3,19 @@
         {% for new in news %}
 
         <div class="span3 well well-small">
-            <a href="{{ path('sip_news_news_item', {'id': new.id})}}" class="thumbnail" style="width: 130px; height: 75px;">
+            <a href="{{ path('sip_news_news_item', {'slug': new.slug})}}" class="thumbnail" style="width: 130px; height: 75px;">
                 {% media new.image, 'normal' %}
             </a>
             <hr />
 
             <h4>
-                <a href="{{ path('sip_news_news_item', {'id': new.id})}}">
+                <a href="{{ path('sip_news_news_item', {'slug': new.slug})}}">
                     {{ new.title|slice(0, 20) }}...
                 </a>
             </h4>
 
             <p>{{ new.description|slice(0, 50)|raw }}...</p>
-            <p><a href="{{ path('sip_news_news_item', {'id': new.id})}}" class="btn pull-right">Read more</a>
+            <p><a href="{{ path('sip_news_news_item', {'slug': new.slug})}}" class="btn pull-right">Read more</a>
         </div>
 
         {% if loop.index % 4 == 0 %}

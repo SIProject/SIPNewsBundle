@@ -35,12 +35,12 @@ class NewsController extends Controller
     }
 
     /**
-     * @Route("/item-{id}", requirements={"id" = "\d+"})
+     * @Route("/item-{slug}")
      * @Template("SIPNewsBundle:News:item.html.twig")
      */
-    public function itemAction($id)
+    public function itemAction($slug)
     {
-        $new = $this->getNewsRepository()->findOneBy(array('id' => $id));
+        $new = $this->getNewsRepository()->findOneBy(array('slug' => $slug));
 
         if (!$new) {
             throw $this->createNotFoundException("Unable to find entity");

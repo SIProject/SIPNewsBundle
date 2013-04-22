@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for object in pager.currentPageResults %}
-        <h1><a href="{{ path('sip_news_news_item', {'id': object.id}) }}">{{ object.title }}</a></h1>
+        <h1><a href="{{ path('sip_news_news_item', {'slug': object.slug}) }}">{{ object.title }}</a></h1>
         <p>{{ object.brief|raw }}</p>
         <p>{{ object.date|date("d.m.Y") }}</p>
         <p><a href="{{ object.link }}">{% media object.image, 'normal' %}</a></p>

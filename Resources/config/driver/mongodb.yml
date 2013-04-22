@@ -1,0 +1,20 @@
+services:
+    sip_news.default_document_manager.news:
+        factory_service: doctrine.odm.mongodb.document_manager
+        factory_method: getClassMetadata
+        class: Doctrine\ODM\MongoDB\Mapping\ClassMetadata
+        public: false
+        arguments: [%sip.news.model.class%]
+
+    sip_news.unitofwork.news:
+        factory_service: doctrine.odm.mongodb.document_manager
+        factory_method: getUnitOfWork
+        class: Doctrine\ODM\MongoDB\UnitOfWork
+        public: false
+
+    sip_news.manager.news:
+        alias: doctrine.odm.mongodb.document_manager
+
+    sip_news.repository.new:
+        class: %sip_news.repository.class%
+        arguments: [ @sip_news.manager.news, @sip_news.unitofwork.news, @sip_news.default_document_manager.news ]

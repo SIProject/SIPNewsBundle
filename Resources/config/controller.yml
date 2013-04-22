@@ -1,0 +1,5 @@
+services:
+    sip_news.controller.news:
+        class: %sip.news.controller.class%
+        calls:
+            - [ setContainer, [ @service_container ] ]

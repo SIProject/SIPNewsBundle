@@ -7,6 +7,7 @@ namespace SIP\NewsBundle\Admin;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Admin\Admin;
 
 class NewsAdmin extends Admin
@@ -49,7 +50,6 @@ class NewsAdmin extends Admin
             ->addIdentifier('title')
             ->add('slug')
             ->add('onMain')
-            ->add('date')
             ->add('image', 'sonata_type_model', array('template'=>'SIPResourceBundle:Admin:list_image.html.twig'))
             ->add('_action', 'actions', array(
             'actions' => array(
@@ -77,5 +77,16 @@ class NewsAdmin extends Admin
                 ->add('link', 'url')
                 ->add('image', 'sonata_type_model_list', array('required' => false), array('link_parameters'=>array('context'=>'news')))
             ->end();
+    }
+
+    /**
+     * @param \Sonata\AdminBundle\Datagrid\DatagridMapper $datagridMapper
+     */
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper
+            ->add('onMain')
+            ->add('title')
+        ;
     }
 }
