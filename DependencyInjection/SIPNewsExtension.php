@@ -26,7 +26,7 @@ class SIPNewsExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
-        $loader->load('admin.yml');
+        $loader->load("admin.{$config['manager_type']}.yml");
 
         $container->setParameter('sip.news.controller.class', $config['controller']);
         $container->setParameter('sip.news.model.class', $config['model']);

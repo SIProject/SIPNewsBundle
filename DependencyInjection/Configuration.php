@@ -20,6 +20,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('model')->cannotBeEmpty()->end()
+                ->scalarNode('manager_type')->defaultValue('orm')->end()
                 ->scalarNode('controller')->defaultValue('SIP\\NewsBundle\\Controller\\NewsController')->end()
                 ->scalarNode('repository')->defaultValue('SIP\\ResourceBundle\\Repository\\EntityRepository')->end()
                 ->scalarNode('admin')->defaultValue('SIP\\NewsBundle\\Admin\\NewsAdmin')->end()

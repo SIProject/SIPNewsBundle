@@ -50,7 +50,6 @@ class NewsAdmin extends Admin
             ->add('slug')
             ->add('onMain')
             ->add('date')
-            ->add('category')
             ->add('image', 'sonata_type_model', array('template'=>'SIPResourceBundle:Admin:list_image.html.twig'))
             ->add('_action', 'actions', array(
             'actions' => array(

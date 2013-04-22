@@ -193,10 +193,10 @@ class News
     /**
      * Set image
      *
-     * @param \SIP\ResourceBundle\Entity\Media\Media $image
+     * @param \SIP\ResourceBundle\Document\Media\Media $image
      * @return News
      */
-    public function setImage(\SIP\ResourceBundle\Entity\Media\Media $image = null)
+    public function setImage(\SIP\ResourceBundle\Document\Media\Media $image = null)
     {
         $this->image = $image;
 
@@ -206,7 +206,7 @@ class News
     /**
      * Get image
      *
-     * @return \SIP\ResourceBundle\Entity\Media\Media
+     * @return \SIP\ResourceBundle\Document\Media\Media
      */
     public function getImage()
     {
