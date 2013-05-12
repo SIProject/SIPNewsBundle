@@ -2,7 +2,7 @@ Simple news bundle with sonata backend
 ======================================
 
 The bundle implements the news on the site, there is also the opportunity to share the news site
-and news on the home page (using the checkboxes in the admin onmayn)
+and news on the home page (using the checkboxes in the admin on mayn), allow orm and mongodb
 
 Installation
 ============
@@ -39,9 +39,10 @@ public function registerBundles()
 
 [Read more about installation SonataAdminBundle](http://sonata-project.org/bundles/admin/master/doc/reference/installation.html#installation)
 
-3. Creating your entity
+3. Creating your entity/document
 -----------------------
 
+for orm:
 ``` php
 <?php
 namespace MyBundle\Entity;
@@ -74,14 +75,44 @@ class News extends BaseNews
 }
 ```
 
-4. Updating database schema
+for mongodb:
+``` php
+<?php
+namespace MyBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use SIP\NewsBundle\Document\News as BaseNews;
+
+/**
+ * @MongoDB\Document(collection="content_news")
+ */
+class News extends BaseNews
+{
+    /**
+     * @MongoDB\Id
+     */
+    protected $id;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+```
+
+4. Updating database schema(only for orm)
 ---------------------------
 
 ``` bash
 $ php app/console doctrine:schema:update --force
 ```
 
-This should be done only in dev environment! We recommend using Doctrine migrations, to safely update your schema.
+This should be done only in dev environment! We recommend using Doctrine migrations(only for orm), to safely update your schema.
 
 5. Importing routing configuration
 ----------------------------------
@@ -95,13 +126,28 @@ SIPNewsBundle:
 6. Configuration:
 -----------------
 
+for orm:
+
 ``` yml
 # app/config/config.yml
 sip_news:
     model: MyBundle\Entity\News
     # All Default configuration:
-    # controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+    # controller: SIP\\NewsBundle\\Controller\\NewsController
+    # manager_type: orm
     # repository: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+    # admin: SIP\NewsBundle\Admin\NewsAdmin
+```
+
+for mongodb:
+
+``` yml
+# app/config/config.yml
+sip_news:
+    model: MyBundle\Document\SIP\News
+    # controller: SIP\\NewsBundle\\Controller\\NewsController
+    manager_type: mongodb
+    repository: SIP\ResourceBundle\Repository\ODM\MongoDB\DocumentRepository
     # admin: SIP\NewsBundle\Admin\NewsAdmin
 ```
 
@@ -110,8 +156,9 @@ sip_news:
 
 The bundle requires show.html and list.html templates.
 Easiest way to override the view is placing it here
-app/Resources/SIPNewsBundle/views/News/show.html.twig
-app/Resources/SIPNewsBundle/views/News/list.html.twig.
+app/Resources/SIPNewsBundle/views/News/index.html.twig
+app/Resources/SIPNewsBundle/views/News/item.html.twig
+app/Resources/SIPNewsBundle/views/News/main_index.html.twig.
 
 8. Usage
 --------

@@ -2,6 +2,16 @@
     "name": "sip/news-bundle",
     "type": "symfony-bundle",
     "description": "Simple news bundle with sonata backend",
+    "keywords": ["news", "orm", "mongodb", "sonataAdmin"],
+    "homepage": "https://github.com/SIProject/SIPNewsBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ilya Sukhinin",
+            "email": "iljasuhinin@gmail.com",
+            "homepage": "https://github.com/iljaSuhinin"
+        }
+    ],
     "require": {
         "genemu/form-bundle": "2.1.*",
         "sonata-project/admin-bundle": "master-dev",
