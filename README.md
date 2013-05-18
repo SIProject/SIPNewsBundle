@@ -199,19 +199,19 @@ Template(index.html.twig):
     {% for news in recentNews %}
 
     <div class="span3 well well-small">
-        <a href="{{ path('sip_news_show', {'slug': news.slug})}}" class="thumbnail" style="width: 130px; height: 75px;">
+        <a href="{{ path('sip_news_news_item', {'slug': news.slug})}}" class="thumbnail" style="width: 130px; height: 75px;">
             {% media news.image, 'normal' %}
         </a>
         <hr />
 
         <h4>
-            <a href="{{ path('sip_news_show', {'slug': news.slug})}}">
+            <a href="{{ path('sip_news_news_item', {'slug': news.slug})}}">
                 {{ news.title|slice(0, 20) }}...
             </a>
         </h4>
 
         <p>{{ news.description|slice(0, 50)|raw }}...</p>
-        <p><a href="{{ path('sip_news_show', {'slug': news.slug})}}" class="btn pull-right">Read more</a>
+        <p><a href="{{ path('sip_news_news_item', {'slug': news.slug})}}" class="btn pull-right">Read more</a>
     </div>
 
     {% if loop.index % 4 == 0 %}
